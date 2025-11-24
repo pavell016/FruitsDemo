@@ -4,9 +4,17 @@ import SwiftUI
 //TODO: Create a list
 //TODO: Create the navigation
 struct ContentView: View {
+    @EnvironmentObject var fruits: FruitStore
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            List{
+                ForEach(fruits, \.self){
+                    
+                }
+            }
+        }
+        
+        
     }
 }
 

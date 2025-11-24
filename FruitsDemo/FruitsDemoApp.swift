@@ -8,3 +8,4 @@ struct FruitsDemoApp: App {
         }
     }
 }
+

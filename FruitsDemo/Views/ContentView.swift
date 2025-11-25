@@ -7,22 +7,21 @@ struct ContentView: View {
     @EnvironmentObject var fruitStore: FruitStore
     var body: some View {
         NavigationView {
-                    List {
-                        ForEach(fruitStore.fruits) { fruit in
-                            HStack {
-                                Text(fruit.emoji.rawValue)
-                                Text(fruit.name)
-                                    .font(.headline)
-                            }
-                        }
-                    }
-                    .navigationTitle("Fruits")
+            List {
+                ForEach(fruitStore.fruits) { fruit in
+                    FruitRowView(fruit: fruit)
                 }
+                .onDelete(perform: delfruit)
+            }
+            .navigationTitle("Fruits")
+        }
         
         
     }
+    func delfruit(at offsets: IndexSet) {
+        fruitStore.fruits.remove(atOffsets: offsets)
+    }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

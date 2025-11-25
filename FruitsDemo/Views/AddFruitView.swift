@@ -4,7 +4,7 @@ import SwiftUI
 struct AddFruitView: View {
     
     @Binding var newFruit:Fruit
-    
+    var onSave: (Fruit) -> Void
     var body: some View {
         Form {
             Section(header: Text("Name")) {
@@ -22,7 +22,7 @@ struct AddFruitView: View {
 }
 
 
-struct AddFruitView_Previews: PreviewProvider {
+/*struct AddFruitView_Previews: PreviewProvider {
     static var previews: some View {
         AddFruitView(newFruit: .constant(FruitStore.defaultFruit))
         AddFruitView(newFruit: .constant(FruitStore.defaultFruit))
@@ -31,3 +31,4 @@ struct AddFruitView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 480, height: 320))
     }
 }
+ */

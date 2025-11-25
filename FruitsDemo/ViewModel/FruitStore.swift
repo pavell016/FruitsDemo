@@ -1,5 +1,6 @@
 import Foundation
 class FruitStore:ObservableObject{
+    
     @Published var fruits = loadFruits()
     
     static func loadFruits()->[Fruit]{
@@ -13,9 +14,4 @@ class FruitStore:ObservableObject{
     ]
     
     static let defaultFruit =  Fruit(name: "Watermelon", emoji: .watermelon, description: "Watermelon helps control your heart rate")
-    
-    
-
-
-    
 }

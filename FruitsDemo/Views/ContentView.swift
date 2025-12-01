@@ -9,9 +9,13 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(fruitStore.fruits) { fruit in
-                    FruitRowView(fruit: fruit)
+                    NavigationLink(destination: DetailFruitView(fruit: fruit)){
+                        FruitRowView(fruit: fruit)
+                    }
+                    
                 }
                 .onDelete(perform: delfruit)
+                
             }
             .navigationTitle("Fruits")
             .navigationBarItems(

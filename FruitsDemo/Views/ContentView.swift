@@ -27,8 +27,12 @@ struct ContentView: View {
                             .font(.title2)
                     }
             ).sheet(isPresented: $showingAddFruit) {
-                AddFruitView(newFruit: $tempFruit) { fruit in
-                    fruitStore.fruits.append(fruit)
+                NavigationView {
+                    AddFruitView(newFruit: $tempFruit,
+                                 existFruit: FruitExists) {
+                        fruit in
+                        fruitStore.fruits.append(fruit)
+                    }
                 }
             }
 
@@ -38,6 +42,9 @@ struct ContentView: View {
     }
     func delfruit(at offsets: IndexSet) {
         fruitStore.fruits.remove(atOffsets: offsets)
+    }
+    func FruitExists(_ fruit: Fruit) -> Bool{
+        return fruitStore.fruits.contains{ $0.emoji == fruit.emoji }
     }
 }
 struct ContentView_Previews: PreviewProvider {
